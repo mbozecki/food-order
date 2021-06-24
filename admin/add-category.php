@@ -3,25 +3,25 @@
 
     <div class="main-content">
     <div class="wrapper">
-    <h1> Zarejestruj sie</h1>
+    <h1>Dodaj kategorię</h1>
     <form action="" method="POST">
         <table>
             <tr>
-                <td>Email: </td>
+                <td>Nazwa </td>
                 <td>
-                    <input type="text" name="email" placeholder="Wprowadz swoj email">
+                    <input type="text" name="name" placeholder="">
                 </td>
             </tr>
             <tr>
-                <td>Hasło: </td>
+                <td>Url obrazu </td>
                 <td>
-                    <input type="password" name="password" placeholder="Wprowadz swoje hasło">
+                    <input type="text" name="image_url" placeholder="np https://upload.wikimedia.org/1.jpg">
                 </td>
             </tr>
             <tr>
-                <td>Imię: </td>
+                <td>Polecana? </td>
                 <td>
-                    <input type="text" name="name" placeholder="Wprowadz swoje imięl">
+                    <input type="text" name="featured" placeholder="TAK/NIE">
                 </td>
             </tr>
 
@@ -43,16 +43,17 @@
     //sprawdz czy przycisk klikniety
     if(isset($_POST['submit']))
     {
-        $email = $_POST['email'];
-        $password= $_POST['password'];
-        $name= $_POST['name'];
         
+        $image_url= $_POST['image_url'];
+        $name= $_POST['name'];
+        $featured = $_POST['featured'];
+        $featured=="TAK" ? $featured=1 : $featured=0;
 
         //stworz zapytanie do bazy
-        $sql= "INSERT INTO users SET
-        email= '$email',
-        password= '$password',
-        fname= '$name'   ";
+        $sql= "INSERT INTO category SET
+        name= '$name',
+        image_url= '$image_url',
+        featured='$featured'  ";
 
         //polacz sie z baza
         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -61,17 +62,17 @@
         if ($res==TRUE)
         {
             //echo "Zapytanie udalo sie";
-            $_SESSION['add']= "Dodano uzytkownika";
+            $_SESSION['add']= "Dodano kategorie";
             //przekieruj
-            header("location:".SITEURL.'/admin/manage-user.php');
+            header("location:".SITEURL.'/admin/manage-category.php');
 
             
         }
          else {
            // echo "Zapytanie nie udalo sie";
-           $_SESSION['add']= "Nie udalo sie dodac uzytkownika";
+           $_SESSION['add']= "Nie udalo sie dodac kategorii";
             //przekieruj
-            header("location:".SITEURL.'/admin/manage-user.php');
+            header("location:".SITEURL.'/admin/manage-category.php');
         }
     }
     else{

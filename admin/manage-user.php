@@ -3,7 +3,18 @@
         <div class="main-content">
             <div class="wrapper">
             <h1>Zarzadzaj uzytkownikami</h1>
-            <a href="#" class="btn-primary">Dodaj uzytkownika</a>
+
+            <?php 
+                //do wyswietlania wiadomosci po usunieciu
+                if (isset($_SESSION['delete']))
+                {
+                    echo $_SESSION['delete'];
+                    unset($_SESSION['delete']); 
+                }
+            ?>
+            <a href="add-user.php" class="btn-primary">Dodaj uzytkownika</a>
+
+            
                 <table class="width100">
                     <tr>
                         <td> ID</th>
@@ -29,7 +40,7 @@
                                     $fname=$rows['fname'];
                                     $email= $rows['email'];
                                     $isAdmin= $rows['isAdmin'];
-                                }
+                               
 
                                 ?>
 
@@ -38,9 +49,11 @@
                                     <td><?php echo $fname; ?></td>
                                     <td><?php echo $email; ?></td>
                                     <td><?php echo ($isAdmin==1 ? "TAK" : "NIE"); ?>
-                                    <td><a href="#" class="btn-add">Zaktualizuj</a> <a href="#" class="btn-delete">Usun</a></td>
+                                    <td><a href="<?php echo SITEURL;?>/admin/update-user.php?id=<?php echo $id;?>" class="btn-add">Zaktualizuj</a> 
+                                    <a href="<?php echo SITEURL;?>/admin/delete-user.php?id=<?php echo $id;?>" class="btn-delete">Usun</a></td>
                                 </tr>
                                 <?php
+                                }
                             }
                         }
                     ?>
