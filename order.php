@@ -1,24 +1,46 @@
 <?php include('partials-front/menu.php') ?>
 
-    <!-- fOOD sEARCH Section Starts Here -->
+    <?php
+        if(isset($_GET['id']))
+        {
+            $food_id=$_GET['id'];
+            $sql= "SELECT * FROM food WHERE food_id=$food_id";
+            $res= mysqli_query($conn, $sql);
+            $count= mysqli_num_rows($res);
+            if ($count==1)
+            {
+                $row= mysqli_fetch_assoc($res);
+                $name=$row['name'];
+                $price=$row['price'];
+                $image_url=$row['image_url'];
+
+            }
+
+        }
+        else
+        {
+            header('Location:'.SITEURL);
+        }
+
+        ?>
     <section class="food-search">
         <div class="container">
             
-            <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
+            <h2 class="text-center text-white">Zamów</h2>
 
             <form action="#" class="order">
                 <fieldset>
-                    <legend>Selected Food</legend>
+                    <legend>Wybrane danie</legend>
 
                     <div class="food-menu-img">
-                        <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                        <img src="<?php echo $image_url?>" alt="a" class="img-responsive img-curve">
                     </div>
     
                     <div class="food-menu-desc">
-                        <h3>Food Title</h3>
-                        <p class="food-price">$2.3</p>
+                        <h3><?php echo $name?></h3>
+                        <p class="food-price"><?php echo $price?>zł</p>
 
-                        <div class="order-label">Quantity</div>
+                        <div class="order-label">Ilość</div>
                         <input type="number" name="qty" class="input-responsive" value="1" required>
                         
                     </div>
@@ -26,8 +48,8 @@
                 </fieldset>
                 
                 <fieldset>
-                    <legend>Delivery Details</legend>
-                    <div class="order-label">Full Name</div>
+                    <legend>Szczegóły zamówienia</legend>
+                    <div class="order-label">Imię</div>
                     <input type="text" name="full-name" placeholder="E.g. Vijay Thapa" class="input-responsive" required>
 
                     <div class="order-label">Phone Number</div>
