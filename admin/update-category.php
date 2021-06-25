@@ -57,7 +57,7 @@
         $sql= "UPDATE category SET
         image_url= '$image_url',
         featured= '$featured',
-        name= '$name'   ";
+        name= '$name' WHERE id=$id  ";
 
         //polacz sie z baza
         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
