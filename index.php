@@ -1,4 +1,10 @@
 <?php include('partials-front/menu.php') ?>
+<?php
+                if (isset($_SESSION['order']))
+                {
+                    echo $_SESSION['order'];
+                    unset($_SESSION['order']);
+                } ?>
     <section class="food-search text-center">
         <div class="container">
 
@@ -9,7 +15,7 @@
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Polecane kategorie</h2>
-
+           
             <?php
                 $sql = "SELECT * from category WHERE featured=1";
                 $res = mysqli_query($conn, $sql);

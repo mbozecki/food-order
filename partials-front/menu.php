@@ -1,4 +1,5 @@
-<?php include('config/constants.php'); ?>
+<?php include('config/constants.php');
+?>
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -32,7 +33,20 @@
                         <a href="<?php echo SITEURL;?>/foods.php">Dania</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL;?>/login.php">Zaloguj się</a>
+                        <?php
+                                if(isset($_SESSION['user']))
+                                {
+                                    ?><a href="<?php echo SITEURL;?>/admin/logout.php">Wyloguj się</a>
+                                    <?php
+                                }
+                                else
+                                {
+                                   ?> <a href="<?php echo SITEURL;?>/login.php">Zaloguj się</a>
+                                   <?php
+                                }
+                                ?>
+                                
+                        
                     </li>
                 </ul>
             </div>

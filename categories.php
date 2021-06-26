@@ -18,7 +18,7 @@
                         $image_url=$row['image_url'];
                     
                     ?>
-                        <a href="category-foods.html">
+                        <a href="category-foods.html?id=<?php echo $id?>">
                         <div class="box-3 float-container">
                         <img src="<?php echo $image_url?>" alt="<?php echo $name?>" class="img-responsive img-curve">
 

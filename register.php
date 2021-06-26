@@ -1,4 +1,5 @@
-<?php include('partials/menu.php'); ?>
+<?php include('partials-front/menu.php');
+    include('user-login-check.php'); ?>
 
 
     <div class="main-content">
@@ -34,9 +35,10 @@
         </table>
     
     </form>
+    <a href="register.php" class="btn btn-primary">Nie masz konta? zarejestruj się</a>
     </div></div>
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials-front/footer.php'); ?>
 
 <?php
 
@@ -61,9 +63,10 @@
         if ($res==TRUE)
         {
             //echo "Zapytanie udalo sie";
+
             $_SESSION['add']= "Dodano uzytkownika";
             //przekieruj
-            header("location:".SITEURL.'/admin/manage-user.php');
+            header("location:".SITEURL."/login.php");
 
             
         }
@@ -71,7 +74,7 @@
            // echo "Zapytanie nie udalo sie";
            $_SESSION['add']= "Nie udalo sie dodac uzytkownika";
             //przekieruj
-            header("location:".SITEURL.'/admin/manage-user.php');
+            header("location:".SITEURL);
         }
     }
     else{

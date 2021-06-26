@@ -1,5 +1,5 @@
 <?php
-    include('../config/constants.php');
+    include('config/constants.php');
     ?>
 
     <div class="main-content">
@@ -46,7 +46,7 @@
     </form>
     </div></div>
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials-front/footer.php'); ?>
 
 <?php
 
@@ -72,17 +72,25 @@
             //udalo sie zalogowac
             if ($row['isAdmin']==1)
             {
-                echo ("TO ADMIN!");
+                
+                $_SESSION['login']= '<div> Zalogowano pomyślnie. </div>';
+                $_SESSION['admin']= $email; 
+                header('location:'.SITEURL.'/admin/');
             }
-            $_SESSION['login']= '<div> Zalogowano pomyślnie. </div>';
-            $_SESSION['user']= $email; //do sprawdzania stanu zalogowoania uzytkownika
-            header('location:'.SITEURL.'/admin/');//przekierowuje na strone główną docelowo
-            //TODO cos innego dla uzytkownika i admina
+            else {
+               
+                $_SESSION['login']= '<div> Zalogowano pomyślnie. </div>';
+                $_SESSION['user']= $row['user_id']; 
+                header('location:'.SITEURL);
+            }
+            
+           //do sprawdzania stanu zalogowoania uzytkownika
+
         }
         else
         {
             //nie udalo sie zalogowac
-            echo "OK";
+           
             $_SESSION['login']= '<div> Nie udalo sie zalogowac </div>';
             header('location'.SITEURL.'/admin/login.php');
         }
