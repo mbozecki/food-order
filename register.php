@@ -1,5 +1,5 @@
 <?php include('partials-front/menu.php');
-    include('user-login-check.php'); ?>
+   ; ?>
 
 
     <div class="main-content">

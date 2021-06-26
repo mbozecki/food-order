@@ -8,7 +8,7 @@
         $sql= "SELECT name FROM food WHERE food_id=$category_id";
         $res= mysqli_query($conn, $sql);
         $row= mysqli_fetch_assoc($res);
-        $category_title=$row['name'];
+        $category_title=$row['name'] ?? "";
 
     }
     else{
@@ -55,7 +55,7 @@
                                 </p>
                                 <br>
 
-                                <a href="order.html?id=<?php echo $id?>" class="btn btn-primary">Zamów</a>
+                                <a href="order.php?id=<?php echo $id?>" class="btn btn-primary">Zamów</a>
                             </div>
                         </div>
                         <?php

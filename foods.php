@@ -31,7 +31,7 @@
                     ?>
                         <div class="food-menu-box">
                             <div class="food-menu-img">
-                                <img src="<?php echo $image_url ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                <img src="<?php echo $image_url ?>" alt="" class="img-responsive img-curve">
                             </div>
 
                             <div class="food-menu-desc">
@@ -42,7 +42,7 @@
                                 </p>
                                 <br>
 
-                                <a href="order.html" class="btn btn-primary">Zamów</a>
+                                <a href="order.php?id=<?php echo $id ?>" class="btn btn-primary">Zamów</a>
                             </div>
                         </div>
                         <?php

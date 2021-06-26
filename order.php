@@ -75,7 +75,7 @@
                 }
                 else
                 {
-                    header('Location:'.SITEURL.">?S33");
+                    header('Location:'.SITEURL."/login.php");
                 }
                 ?>
                 <fieldset>

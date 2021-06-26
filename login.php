@@ -44,6 +44,7 @@
         </table>
     
     </form>
+    <a href="<?php echo SITEURL;?>/register.php" class="btn-add">ZAREJESTRUJ SIĘ</a> 
     </div></div>
 
 <?php include('partials-front/footer.php'); ?>

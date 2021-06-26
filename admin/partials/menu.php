@@ -4,8 +4,9 @@
 
 <html>
     <head>
-        <title> Food order -homepage </title>
+        <title> Zamów jedzenie! </title>
         <link rel="stylesheet" href="../css/admin.css">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         </head>
 
     <body>
@@ -16,7 +17,7 @@
                     <li><a href="manage-user.php">Uzytkownicy</a></li>
                     <li><a href="manage-category.php">Kategorie</a></li>
                     <li><a href="manage-food.php">Jedzenie</a></li>
-                    <li><a href="manage-order.php">Zamowienie</a></li>
+                    <li><a href="manage-order.php">ZAMÓWIENIA</a></li>
                     <li><a href="logout.php"> Wyloguj </a></li>
                     </ul>
             </div>
